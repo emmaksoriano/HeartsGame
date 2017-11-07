@@ -5,13 +5,15 @@ package com.example.emmasoriano.heartsrules;
  * Created by emmasoriano on 10/19/17.
  */
 
-public class Rules {
-    Player currentPlayer;
+public class LocalGame {
+    GameState currentGame;
 
     //constructor
-    public Rules(){
+    public LocalGame(GameState game){
+        currentGame = game;
         //find which hand has 2 of clubs
         //initialize all the players myTurn variables
+
 
     }
 
@@ -30,24 +32,16 @@ public class Rules {
     }
 
     //checks who's turn it is to play a card
-    public Player checkTurn(Player p1, Player p2, Player p3, Player p4){
+    public Player checkTurn(){
+        Player currentPlayer = null;
 
-
-        if(p1.myTurn == true){
-            currentPlayer = p1;
-        }
-        else if(p2.myTurn == true){
-            currentPlayer = p1;
-
-        }
-        else if(p3.myTurn == true){
-            currentPlayer = p1;
-        }
-        else if(p4.myTurn == true){
-            currentPlayer = p1;
+        for(int i = 0; i<currentGame.players.length; i++){
+            if(currentGame.players[i].myTurn == true){
+                currentPlayer = currentGame.players[i];
+            }
         }
 
-        return currentPlayer;
+        currentGame.setCurrentPlayer(currentPlayer);
     }
 
     //determines who won the round
@@ -56,6 +50,14 @@ public class Rules {
         //find highest card of suit played
         //find which player played that card
         //player.isWinner = true;
+    }
+
+    public void threeCardPass(GameState game){
+
+    }
+
+    public int calculatePoints(Table playedCards){
+
     }
 
 }
