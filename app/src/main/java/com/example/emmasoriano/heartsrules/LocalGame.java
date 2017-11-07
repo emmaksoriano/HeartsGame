@@ -42,6 +42,8 @@ public class LocalGame {
         }
 
         currentGame.setCurrentPlayer(currentPlayer);
+
+        return currentPlayer;
     }
 
     //determines who won the round

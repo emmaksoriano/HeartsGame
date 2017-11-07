@@ -5,26 +5,33 @@ package com.example.emmasoriano.heartsrules;
  */
 
 public class Card {
+
     public int faceValue;
     public String suitValue;
     public String cardName;
+    public String[] faceValues = {"Two", "Three", "Four", "Five", "Six", "Seven",
+            "Eight", "Nine", "Ten", "Jack", "Queen","King","Ace"};
 
     public Card(int face, String suit){
         faceValue = face;
         suitValue = suit;
-        cardName= ""+faceValue + " of " + suitValue;
+        setCardName();
     }
-    public void setCardName(){
 
+    public void setCardName(){
+        cardName = faceValues[faceValue-2] + " of " + suitValue;
     }
 
     public int getCardValue(){
         return faceValue;
     }
 
+    public String getSuitValue(){return suitValue;}
+
     public String getCardName(){
         return cardName;
     }
-}
+
 
 }
+
