@@ -22,15 +22,13 @@ public class Player{
 
 
     //Constructor
-    public Player(String playerName, int[] playerHand, CardDeck gameDeck){
+    public Player(String playerName,int num, CardDeck gameDeck){
         //set players name
         name = playerName;
+        //set player's ID
+        playerID = num;
         //deal players hand
-        for(int i=0; i<playerHand.length;i++) {
-            if(playerHand[i] != -1){
-                hand.add(playerHand[i]);
-            }
-        }
+        hand = gameDeck.dealHand();
         //determines if player has the starting card
         for(Integer i: hand){
             if(i == gameDeck.deck[0][0]){

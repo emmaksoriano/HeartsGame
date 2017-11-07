@@ -9,7 +9,7 @@ public class GameState implements onClickListener{
     int currentPlayer; //find/verify with playerID
     int nextPlayer; //find/verify with playerID
     int[] currentScores;
-    int[] currentSuit; // determined by a row of cards in the CardDeck 2D array
+    int currentSuit; // determined by a row of cards in the CardDeck 2D array
     Table cardsPlayed;
 
     public GameState(){
@@ -17,5 +17,6 @@ public class GameState implements onClickListener{
     }
 
     //should have listeners to update the GUI?
+    //should we put our pop up menu code here?
 
 }

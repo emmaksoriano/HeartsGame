@@ -50,6 +50,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    CardDeck deck = new CardDeck();
+    HumanPlayer user = new HumanPlayer("Bob", deck);
+    //ask user what dificulty they want the AI to be
+    //create 3 AI players
+    boolean hardAI;
+    if(hardAI== true){
+        HardAI cp1 = new HardAI("Computer Player 1", deck);
+        HardAI cp2 = new HardAI("Computer Player 2", deck);
+        HardAI cp3 = new HardAI("Computer Player 3", deck);
+        GameState game = new GameState(deck,user,cp1,cp2,cp3);
+    }
+    else{
+        EasyAI cp1 = new EasyAI("Computer Player 1", deck);
+        EasyAI cp2 = new EasyAI("Computer Player 2", deck);
+        EasyAI cp3 = new EasyAI("Computer Player 3", deck);
+        GameState game = new GameState(deck,user,cp1,cp2,cp3);
+    }
 
 
 
