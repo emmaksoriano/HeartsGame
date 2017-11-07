@@ -45,18 +45,28 @@ public class LocalGame {
     }
 
     //determines who won the round
-    public void winRound(Player p1, Player p2, Player p3, Player p4){
+    public void winRound(){
         //find suit of first card played
         //find highest card of suit played
         //find which player played that card
-        //player.isWinner = true;
+        //currentGame.player[i].setIsWinner(true);
     }
 
     public void threeCardPass(GameState game){
 
     }
 
-    public int calculatePoints(Table playedCards){
+    public int calculatePoints(){
+    return 0;
+    }
+
+    public void updateScore(){
+        int points = calculatePoints();
+        for(int i = 0; i<currentGame.players.length; i++){
+            if(currentGame.players[i].isWinner == true){
+                currentGame.players[i].setScore(points);
+            }
+        }
 
     }
 

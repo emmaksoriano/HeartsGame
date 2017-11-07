@@ -60,7 +60,7 @@ public class Player{
     }
 
     public void setScore(int initScore){
-        score = initScore;
+        score = score + initScore;
     }
 
     public void setMyTurn(boolean initMyTurn){

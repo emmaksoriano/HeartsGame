@@ -5,12 +5,12 @@ package com.example.emmasoriano.heartsrules;
  * Created by emmasoriano on 10/23/17.
  */
 
-public class GameState implements onClickListener{
+public class GameState {
     Player[] players = new Player[4];
-    Player currentPlayer; //find/verify with playerID
-    Player nextPlayer; //find/verify with playerID
+    Player currentPlayer;
+    Player nextPlayer;
     int[] currentScores;
-    int currentSuit; // determined by a row of cards in the CardDeck 2D array
+    int currentSuit;
     Table cardsPlayed;
 
     public GameState(){
@@ -22,7 +22,6 @@ public class GameState implements onClickListener{
         currentPlayer = initPlayer;
     }
 
-    //should have listeners to update the GUI?
-    //should we put our pop up menu code here?
+
 
 }
