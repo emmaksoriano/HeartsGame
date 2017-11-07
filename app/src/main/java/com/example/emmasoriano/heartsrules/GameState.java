@@ -6,14 +6,20 @@ package com.example.emmasoriano.heartsrules;
  */
 
 public class GameState implements onClickListener{
-    int currentPlayer; //find/verify with playerID
-    int nextPlayer; //find/verify with playerID
+    Player[] players = new Player[4];
+    Player currentPlayer; //find/verify with playerID
+    Player nextPlayer; //find/verify with playerID
     int[] currentScores;
     int currentSuit; // determined by a row of cards in the CardDeck 2D array
     Table cardsPlayed;
 
     public GameState(){
 
+
+    }
+
+    public void setCurrentPlayer(Player initPlayer){
+        currentPlayer = initPlayer;
     }
 
     //should have listeners to update the GUI?

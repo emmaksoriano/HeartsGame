@@ -12,32 +12,30 @@ import java.util.ArrayList;
 
 public class Player{
 
-    ArrayList<Integer> hand;
+    Card [] hand = new Card[13];
     boolean myTurn;
     boolean isWinner;
     boolean hasTwoOfClubs = false;
     int score = 0;
     String name;
-    int playerID;
+
 
 
     //Constructor
-    public Player(String playerName,int num, CardDeck gameDeck){
+    public Player(String playerName, CardDeck gameDeck){
         //set players name
         name = playerName;
-        //set player's ID
-        playerID = num;
         //deal players hand
         hand = gameDeck.dealHand();
         //determines if player has the starting card
-        for(Integer i: hand){
-            if(i == gameDeck.deck[0][0]){
+        for( Card c: hand){
+            if(c.getCardName().equals( "" + 2 + " of " + "Clubs")){
                 hasTwoOfClubs = true;
             }
         }
     }
 
-    public ArrayList<Integer> getHand(){
+    public Card[] getHand(){
         return hand;
     }
 
@@ -49,12 +47,37 @@ public class Player{
         return score;
     }
 
-    public int getPlayerID(){
-        return playerID;
-    }
-
     public boolean isMyTurn(){
         return myTurn;
+    }
+
+    public void setHand(Card[] initHand){
+        hand = initHand;
+    }
+
+    public void setName(String initName){
+        name = initName;
+    }
+
+    public void setScore(int initScore){
+        score = initScore;
+    }
+
+    public void setMyTurn(boolean initMyTurn){
+        myTurn = initMyTurn;
+    }
+
+    public void threeCardPass(Card one, Card two, Card three){
+        //pass cards to appropriate player
+    }
+
+    public boolean checkIfCardinHand(Card card){
+        for(int i = 0; i<hand.length; i++){
+            if(hand[i].equals(card)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

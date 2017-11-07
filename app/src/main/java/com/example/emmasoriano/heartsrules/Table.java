@@ -6,35 +6,35 @@ package com.example.emmasoriano.heartsrules;
 
 public class Table {
 
-    int[] table = new int[4];
+    Card[] table = new Card[4];
 
     //Constructor
     public Table(){
         //initialize "empty" table
         for(int i=0; i<4; i++){
-            table[i]=-1;
+            table[i]=null;
         }
 
     }
 
-    public void addCard(int card){
+    public void addCard(Card card){
 
         for(int i=0; i<4; i++){
-            if(table[i]==-1){
+            if(table[i]= null){
                 table[i]=card;
                 break;
             }
         }
     }
 
-    public int[] getTable(){
+    public Card[] getTable(){
 
         return table;
     }
 
     public void clearTable(){
         for(int i=0; i<4; i++){
-            table[i]=-1;
+            table[i]=null;
         }
     }
 }
