@@ -11,7 +11,8 @@ public class GameState {
     Player nextPlayer;
     int[] currentScores;
     int currentSuit;
-    Table cardsPlayed;
+    int round;
+    Table table;
 
     public GameState(){
 

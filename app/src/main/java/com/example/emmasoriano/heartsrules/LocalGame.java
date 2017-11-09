@@ -13,8 +13,6 @@ public class LocalGame {
         currentGame = game;
         //find which hand has 2 of clubs
         //initialize all the players myTurn variables
-
-
     }
 
     //checks if card played is legal
@@ -54,12 +52,56 @@ public class LocalGame {
         //currentGame.player[i].setIsWinner(true);
     }
 
-    public void threeCardPass(GameState game){
+    public void CardPass(){
+        //ask user to select three cards then hit "pass" button
+        if(pass.isPressed()){
+            //have a round int that tells us which way to pass
+            if(currentGame.round == 0) {
+                //pass right
+                currentGame.players[0].threeCardPass(currentGame.players[0].getMyPass(),currentGame.players[1]);
+                currentGame.players[1].threeCardPass(currentGame.players[1].getMyPass(),currentGame.players[2]);
+                currentGame.players[2].threeCardPass(currentGame.players[2].getMyPass(),currentGame.players[3]);
+                currentGame.players[3].threeCardPass(currentGame.players[3].getMyPass(),currentGame.players[0]);
+
+            }
+
+            if(currentGame.round == 1) {
+                //pass right
+                currentGame.players[0].threeCardPass(currentGame.players[0].getMyPass(),currentGame.players[3]);
+                currentGame.players[1].threeCardPass(currentGame.players[1].getMyPass(),currentGame.players[0]);
+                currentGame.players[2].threeCardPass(currentGame.players[2].getMyPass(),currentGame.players[1]);
+                currentGame.players[3].threeCardPass(currentGame.players[3].getMyPass(),currentGame.players[2]);
+
+            }
+
+            if(currentGame.round == 2) {
+                //pass across table
+                currentGame.players[0].threeCardPass(currentGame.players[0].getMyPass(),currentGame.players[2]);
+                currentGame.players[1].threeCardPass(currentGame.players[1].getMyPass(),currentGame.players[3]);
+                currentGame.players[2].threeCardPass(currentGame.players[2].getMyPass(),currentGame.players[0]);
+                currentGame.players[3].threeCardPass(currentGame.players[3].getMyPass(),currentGame.players[1]);
+
+            }
+
+        }
 
     }
 
     public int calculatePoints(){
-    return 0;
+        int points = 0;
+
+        for(Card c: currentGame.table.cardsPlayed){
+            //add one point each time a heart is on the table
+            if(c.suitValue.equals("Hearts")){
+             points++;
+            }
+            //add 13 points if the queen of spades is on the table
+            else if(c.suitValue.equals("Spades")&& c.faceValue == 10){
+                points=+13;
+            }
+        }
+
+        return points;
     }
 
     public void updateScore(){
@@ -69,7 +111,6 @@ public class LocalGame {
                 currentGame.players[i].setScore(points);
             }
         }
-
     }
 
 }

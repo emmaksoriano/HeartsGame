@@ -6,13 +6,13 @@ package com.example.emmasoriano.heartsrules;
 
 public class Table {
 
-    Card[] table = new Card[4];
+    Card[] cardsPlayed = new Card[4];
 
     //Constructor
     public Table(){
         //initialize "empty" table
         for(int i=0; i<4; i++){
-            table[i]=null;
+            cardsPlayed[i]=null;
         }
 
     }
@@ -20,8 +20,8 @@ public class Table {
     public void addCard(Card card){
 
         for(int i=0; i<4; i++){
-            if(table[i]= null){
-                table[i]=card;
+            if(cardsPlayed[i]= null){
+                cardsPlayed[i]=card;
                 break;
             }
         }
@@ -29,12 +29,12 @@ public class Table {
 
     public Card[] getTable(){
 
-        return table;
+        return cardsPlayed;
     }
 
     public void clearTable(){
         for(int i=0; i<4; i++){
-            table[i]=null;
+            cardsPlayed[i]=null;
         }
     }
 }

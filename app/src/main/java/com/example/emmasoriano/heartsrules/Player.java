@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class Player{
 
-    Card [] hand = new Card[13];
+    ArrayList<Card> hand = new ArrayList<Card>();
+    Card[] myPass = new Card[3];
     boolean myTurn;
     boolean isWinner;
     boolean hasTwoOfClubs = false;
@@ -34,9 +35,12 @@ public class Player{
             }
         }
     }
-
+    public Card[] getMyPass(){
+        return myPass;
+    }
     public Card[] getHand(){
-        return hand;
+
+        return (Card[]) hand.toArray();
     }
 
     public String getName(){
@@ -51,8 +55,12 @@ public class Player{
         return myTurn;
     }
 
+    public void setMyPass(Card[] cards){
+        myPass = cards;
+    }
+
     public void setHand(Card[] initHand){
-        hand = initHand;
+        hand.addAll(initHand);
     }
 
     public void setName(String initName){
@@ -67,13 +75,23 @@ public class Player{
         myTurn = initMyTurn;
     }
 
-    public void threeCardPass(Card one, Card two, Card three){
+    public void threeCardPass(Card[] pass, Player p){
         //pass cards to appropriate player
+        p.setHand(pass);
+
+        //remove cards passed to another player from hand
+        for(Card c: hand){
+            for(int i=0; i<pass.length; i++){
+                if(c.equals(pass[i])){
+                    hand.remove(pass[i]);
+                }
+            }
+        }
     }
 
     public boolean checkIfCardinHand(Card card){
-        for(int i = 0; i<hand.length; i++){
-            if(hand[i].equals(card)){
+        for(Card c: hand){
+            if(c.equals(card)){
                 return true;
             }
         }
