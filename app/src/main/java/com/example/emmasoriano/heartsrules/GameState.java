@@ -23,6 +23,32 @@ public class GameState {
         currentPlayer = initPlayer;
     }
 
+    public void setNextPlayer(Player player){
+        nextPlayer = player;
+    }
+
+    public void setPlayersScore(Player player, int addScore){
+        player.setScore(addScore);
+    }
+
+    public Player getCurrentPlayer(){
+        return currentPlayer;
+    }
+
+    public Player getNextPlayer(){
+        return nextPlayer;
+    }
+
+    public int getCurrentSuit(){
+        return currentSuit;
+    }
+
+    public int getRound(){
+        return round;
+    }
+
+
+
 
 
 }

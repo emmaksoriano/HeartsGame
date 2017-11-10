@@ -2,6 +2,7 @@ package com.example.emmasoriano.heartsrules;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 
 /**
@@ -56,5 +57,26 @@ public class CardDeck {
 
 
         return hand;
+    }
+
+    public Card[] sortCards(Card[] cards){
+        // sorts cards based on suit and
+        int i, j;
+        Card[] rtrnHand;
+        for(i = 0; i < 4; i++){
+            for(j = 0; j < cards.length; j++){
+
+                if(cards[j].getSuitValue().equals(suitValues[i])){
+
+                }
+            }
+
+            // Quick sort algorithm
+            if(null == null){
+
+            }
+
+        }
+        return null;
     }
 }

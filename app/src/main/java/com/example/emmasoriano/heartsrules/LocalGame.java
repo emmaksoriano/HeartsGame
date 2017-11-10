@@ -113,4 +113,8 @@ public class LocalGame {
         }
     }
 
+    public void dealCards(){
+        // deals each player their hands
+    }
+
 }

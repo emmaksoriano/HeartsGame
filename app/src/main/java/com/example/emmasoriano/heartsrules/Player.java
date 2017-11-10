@@ -27,7 +27,7 @@ public class Player{
         //set players name
         name = playerName;
         //deal players hand
-        hand = gameDeck.dealHand();
+        //hand = gameDeck.dealHand();
         //determines if player has the starting card
         for( Card c: hand){
             if(c.getCardName().equals( "" + 2 + " of " + "Clubs")){
