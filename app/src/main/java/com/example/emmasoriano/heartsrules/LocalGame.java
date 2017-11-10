@@ -54,7 +54,8 @@ public class LocalGame {
 
     public void CardPass(){
         //ask user to select three cards then hit "pass" button
-        if(pass.isPressed()){
+        // TODO Fix this
+        if(false){
             //have a round int that tells us which way to pass
             if(currentGame.round == 0) {
                 //pass right

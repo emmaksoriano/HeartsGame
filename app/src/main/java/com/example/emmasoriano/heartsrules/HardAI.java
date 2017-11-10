@@ -6,8 +6,8 @@ package com.example.emmasoriano.heartsrules;
 
 public class HardAI extends Player {
 
-    public HardAI(String playerName, CardDeck gameDeck) {
-        super(playerName, gameDeck);
+    public HardAI(String playerName) {
+        super(playerName);
     }
 
     public void strategy() {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Player{
 
-    ArrayList<Card> hand = new ArrayList<Card>();
+    ArrayList<Card> hand = new ArrayList<>();
     Card[] myPass = new Card[3];
     boolean myTurn;
     boolean isWinner;
@@ -23,7 +23,7 @@ public class Player{
 
 
     //Constructor
-    public Player(String playerName, CardDeck gameDeck){
+    public Player(String playerName){
         //set players name
         name = playerName;
         //deal players hand
@@ -35,9 +35,13 @@ public class Player{
             }
         }
     }
+
+
     public Card[] getMyPass(){
         return myPass;
     }
+
+
     public Card[] getHand(){
 
         return (Card[]) hand.toArray();
@@ -59,8 +63,15 @@ public class Player{
         myPass = cards;
     }
 
+    /**
+     * Set hand to given list of cards
+     * @param initHand - shouldn't be more then
+     */
     public void setHand(Card[] initHand){
-        hand.addAll(initHand);
+        int i;
+        for (i = 0; i < initHand.length; i++){
+            hand.add(initHand[i]);
+        }
     }
 
     public void setName(String initName){

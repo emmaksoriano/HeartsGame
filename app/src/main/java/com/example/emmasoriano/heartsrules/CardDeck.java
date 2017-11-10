@@ -59,24 +59,72 @@ public class CardDeck {
         return hand;
     }
 
+    /**
+     * sorts a given set of cards by suit and value
+     * @param cards
+     * @return
+     */
     public Card[] sortCards(Card[] cards){
         // sorts cards based on suit and
-        int i, j;
-        Card[] rtrnHand;
+        int i, j, index;
+        Card[] rtrnHand = new Card[cards.length];
+        ArrayList<Card> cardsToSort = new ArrayList<>();
         for(i = 0; i < 4; i++){
             for(j = 0; j < cards.length; j++){
-
                 if(cards[j].getSuitValue().equals(suitValues[i])){
-
+                    cardsToSort.add(cards[i]);
                 }
             }
-
             // Quick sort algorithm
-            if(null == null){
-
+            cardsToSort = quickSort(cardsToSort);
+            index = 0;
+            for(Card c : cardsToSort){
+                rtrnHand[index] = c;
+                index++;
             }
-
         }
-        return null;
+        return rtrnHand;
+    }
+
+    /**
+     * Uses a quick sort algorithm to sort cards
+     * based on face value, not suit.
+     * @param cards
+     * @return
+     */
+    public ArrayList<Card> quickSort(ArrayList<Card> cards){
+
+        // Declare Variables
+        ArrayList<Card> rtnCards = new ArrayList<>();
+        ArrayList<Card> greater = new ArrayList<>();
+        ArrayList<Card> less = new ArrayList<>();
+        Card pivotCard;
+        int pIndex;
+
+        if(cards != null){
+            if(cards.size() == 1){
+                return cards;
+            }
+            else{
+
+                pIndex = cards.size()/2;
+                pivotCard = cards.get(pIndex);
+                for(Card c : cards){
+                    if(!(c.equals(pivotCard))){
+                        if(c.faceValue > pivotCard.faceValue){
+                            greater.add(c);
+                        }
+                        else{
+                            less.add(c);
+                        }
+                    }
+                }
+
+                rtnCards.addAll(quickSort(greater));
+                rtnCards.add(pivotCard);
+                rtnCards.addAll(quickSort(less));
+            }
+        }
+        return rtnCards;
     }
 }
