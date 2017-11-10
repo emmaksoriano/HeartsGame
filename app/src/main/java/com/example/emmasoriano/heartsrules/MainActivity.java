@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        GameState gameState = new GameState(1, "test Name");
+
     }
 
     @Override
@@ -50,16 +54,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+/**
     CardDeck deck = new CardDeck();
-    HumanPlayer user = new HumanPlayer("Bob", deck);
+    HumanPlayer user = new HumanPlayer("Bob");
     //ask user what dificulty they want the AI to be
     //create 3 AI players
     boolean hardAI;
-    if(hardAI== true){
-        HardAI cp1 = new HardAI("Computer Player 1", deck);
-        HardAI cp2 = new HardAI("Computer Player 2", deck);
-        HardAI cp3 = new HardAI("Computer Player 3", deck);
-        GameState game = new GameState(deck,user,cp1,cp2,cp3);
+    if(hardAI == true){
+        HardAI cp1 = new HardAI("Computer Player 1");
+        HardAI cp2 = new HardAI("Computer Player 2");
+        HardAI cp3 = new HardAI("Computer Player 3");
+        GameState game = new GameState(1, user.getName());
     }
     else{
         EasyAI cp1 = new EasyAI("Computer Player 1", deck);
@@ -67,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         EasyAI cp3 = new EasyAI("Computer Player 3", deck);
         GameState game = new GameState(deck,user,cp1,cp2,cp3);
     }
-
+**/
 
 
 

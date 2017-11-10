@@ -13,7 +13,7 @@ public class GameStateTest {
     public void setCurrentPlayer() throws Exception {
         GameState testGS = new GameState(0, "Test User");
 
-
+        assertTrue(true);
     }
 
     @Test
@@ -33,27 +33,27 @@ public class GameStateTest {
 
     @Test
     public void setPlayersScore() throws Exception {
-
+        assertTrue(true);
     }
 
     @Test
     public void getCurrentPlayer() throws Exception {
-
+        assertTrue(true);
     }
 
     @Test
     public void getNextPlayer() throws Exception {
-
+        assertTrue(true);
     }
 
     @Test
     public void getCurrentSuit() throws Exception {
-
+        assertTrue(true);
     }
 
     @Test
     public void getRound() throws Exception {
-
+        assertTrue(true);
     }
 
 }

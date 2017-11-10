@@ -42,21 +42,26 @@ public class CardDeck {
 
     }
 
-    public Card[][] dealHand(){
+    public ArrayList[] dealHand(){
+        ArrayList[] handsList = new ArrayList[4];
         shuffle();
-        Card[][] hand = new Card[4][13];
+        //Card[][] hand = new Card[4][13];
+        ArrayList<Card> cardsToSort = new ArrayList<>();
         int counter = 0;
         int i, j;
+
         for(i = 0; i < 4; i++){
+            handsList[i] = new ArrayList<>();
             for(j = 0; j < 13; j++){
-                hand[i][j] = deck[counter];
+                cardsToSort.add(deck[counter]);
                 counter++;
             }
+            sortCards(cardsToSort);
         }
         //takes 13 cards from top of deck, removes them from deck and adds them to players hand
 
 
-        return hand;
+        return handsList;
     }
 
     /**
@@ -64,23 +69,22 @@ public class CardDeck {
      * @param cards
      * @return
      */
-    public Card[] sortCards(Card[] cards){
+    public ArrayList<Card> sortCards(ArrayList<Card> cards){
         // sorts cards based on suit and
-        int i, j, index;
-        Card[] rtrnHand = new Card[cards.length];
+        int i, j;
+        ArrayList<Card> rtrnHand = new ArrayList<>();
         ArrayList<Card> cardsToSort = new ArrayList<>();
+
         for(i = 0; i < 4; i++){
-            for(j = 0; j < cards.length; j++){
-                if(cards[j].getSuitValue().equals(suitValues[i])){
-                    cardsToSort.add(cards[i]);
+            for(j = 0; j < cards.size(); j++){
+                if(cards.get(j).getSuitValue().equals(suitValues[i])){
+                    cardsToSort.add(cards.get(j));
                 }
             }
             // Quick sort algorithm
             cardsToSort = quickSort(cardsToSort);
-            index = 0;
             for(Card c : cardsToSort){
-                rtrnHand[index] = c;
-                index++;
+                rtrnHand.add(c);
             }
         }
         return rtrnHand;

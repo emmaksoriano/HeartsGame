@@ -7,15 +7,14 @@ package com.example.emmasoriano.heartsrules;
 public class HumanPlayer extends Player {
 
     //Declare Instance Variables
-    public String playerName;
+
     /**
      * Constructor HumandPlayer
      * @param name
      */
     public HumanPlayer(String name)
     {
-        playerName = name;
-
+        super(name);
     }
 
     public void playCard(){

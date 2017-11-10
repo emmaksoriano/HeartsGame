@@ -1,6 +1,8 @@
 package com.example.emmasoriano.heartsrules;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by emmasoriano on 10/23/17.
  */
@@ -12,6 +14,7 @@ public class GameState {
     public Player[] players = new Player[4];
     public Player currentPlayer;
     public Player nextPlayer;
+    public CardDeck deck;
     public int playerIndex;
     public int difficulty;
     public int[] currentScores;
@@ -27,6 +30,7 @@ public class GameState {
     public GameState(int d, String user){
 
         difficulty = d;
+        userName = user;
         setPlayers();
         setCurrentPlayer(players[0]);
         playerIndex = 0;
@@ -37,6 +41,7 @@ public class GameState {
         currentSuit = 1;
         round = 0;
         table = new Table();
+        deck = new CardDeck();
     }
 
     /**
@@ -128,6 +133,13 @@ public class GameState {
      */
     public int getRound(){
         return round;
+    }
+
+    public void testDeal(){
+        deck.shuffle();
+        ArrayList[] hands = deck.dealHand();
+        players[0].hand = hands[0];
+
     }
 
 

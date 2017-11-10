@@ -18,7 +18,6 @@ public class Table {
     }
 
     public void addCard(Card card){
-
         for(int i=0; i<4; i++){
             if(cardsPlayed[i] == null){
                 cardsPlayed[i]=card;
@@ -28,7 +27,6 @@ public class Table {
     }
 
     public Card[] getTable(){
-
         return cardsPlayed;
     }
 
