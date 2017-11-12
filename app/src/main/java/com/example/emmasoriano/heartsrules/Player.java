@@ -14,8 +14,8 @@ public class Player{
 
     ArrayList<Card> hand = new ArrayList<>();
     Card[] myPass = new Card[3];
-    boolean myTurn;
-    boolean isWinner;
+    boolean myTurn = false;
+    boolean isWinner = false;
     boolean hasTwoOfClubs = false;
     int score = 0;
     String name;
@@ -24,16 +24,13 @@ public class Player{
 
     //Constructor
     public Player(String playerName){
+
         //set players name
         name = playerName;
-        //deal players hand
-        //hand = gameDeck.dealHand();
+
         //determines if player has the starting card
-        for( Card c: hand){
-            if(c.getCardName().equals( "" + 2 + " of " + "Clubs")){
-                hasTwoOfClubs = true;
-            }
-        }
+        Card twoOfClubs = new Card(2, "Club");
+        hasTwoOfClubs = checkIfCardinHand(twoOfClubs);
     }
 
 
@@ -43,7 +40,6 @@ public class Player{
 
 
     public Card[] getHand(){
-
         return (Card[]) hand.toArray();
     }
 

@@ -30,38 +30,43 @@ public class CardDeck {
         shuffle();
     }
 
-    // Shuffles the deck
+    /**
+     * Shuffles the deck
+     */
     public void shuffle(){
-
         int i;
         ArrayList<Card> tempList = new ArrayList<>(Arrays.asList(deck));
+        Card[] tempDeck = new Card[52];
 
         for (i = 0; i < 52; i++){
-            tempList.get((int)(Math.random()*(52-i)));
+            tempDeck[i] = tempList.get((int)(Math.random()*(tempList.size()-1)));
         }
-
+        deck = tempDeck;
     }
 
-    public ArrayList[] dealHand(){
-        ArrayList[] handsList = new ArrayList[4];
+    /**
+     *
+     * @return Card[4][13]
+     * The four players then their hands of 13 cards
+     */
+    public Card[][] dealHand() {
         shuffle();
-        //Card[][] hand = new Card[4][13];
-        ArrayList<Card> cardsToSort = new ArrayList<>();
+        Card[][] hand = new Card[4][13];
+
         int counter = 0;
         int i, j;
 
-        for(i = 0; i < 4; i++){
-            handsList[i] = new ArrayList<>();
-            for(j = 0; j < 13; j++){
-                cardsToSort.add(deck[counter]);
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < hand[0].length; j++) {
+                hand[i][j] = deck[counter];
                 counter++;
             }
-            sortCards(cardsToSort);
+            sortCards(hand[i]);
         }
         //takes 13 cards from top of deck, removes them from deck and adds them to players hand
 
 
-        return handsList;
+        return hand;
     }
 
     /**
@@ -69,26 +74,64 @@ public class CardDeck {
      * @param cards
      * @return
      */
-    public ArrayList<Card> sortCards(ArrayList<Card> cards){
+    public Card[] sortCards(Card[] cards){
         // sorts cards based on suit and
         int i, j;
-        ArrayList<Card> rtrnHand = new ArrayList<>();
+        int indexCounter = 0;
+        int count = 0;
+        Card[] rtrnHand = new Card[cards.length];
         ArrayList<Card> cardsToSort = new ArrayList<>();
 
-        for(i = 0; i < 4; i++){
-            for(j = 0; j < cards.size(); j++){
-                if(cards.get(j).getSuitValue().equals(suitValues[i])){
-                    cardsToSort.add(cards.get(j));
+        if(cards != null) {
+            for (i = 0; i < 4; i++) {
+                for (j = 0; j < cards.length - 1; j++) {
+                    if(cards[i] != null) {
+                        cardsToSort = new ArrayList<>();
+                        String type = cards[j].getSuitValue();
+                        if (type.equals(suitValues[i])) {
+                            cardsToSort.add(cards[j]);
+                            count++;
+                        }
+                    }
+                }
+                insertionSort(cardsToSort);
+                for(Card C : cardsToSort){
+                    rtrnHand[indexCounter] = C;
+                    indexCounter++;
+                }
+                if(indexCounter >= cards.length){
+                    break;
                 }
             }
-            // Quick sort algorithm
-            cardsToSort = quickSort(cardsToSort);
-            for(Card c : cardsToSort){
-                rtrnHand.add(c);
-            }
         }
-        return rtrnHand;
+        return cards;
     }
+
+
+    /**
+     * Uses the insertion sort algorithm to sort cards based on face value
+     * @param cards
+     * @return
+     */
+    public ArrayList<Card> insertionSort(ArrayList<Card> cards){
+
+        int i, j;
+        Card tempCard;
+
+        for(i = 1; i < cards.size(); i++){
+            tempCard = cards.get(i);
+            j = i - 1;
+            while ((j >= 0) && (cards.get(j).faceValue > tempCard.faceValue)){
+                cards.set(j+1, cards.get(j));
+                j = j-1;
+            }
+            cards.set(j+1, tempCard);
+        }
+
+        return cards;
+    }
+
+
 
     /**
      * Uses a quick sort algorithm to sort cards
