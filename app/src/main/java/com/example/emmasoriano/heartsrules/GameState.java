@@ -2,6 +2,7 @@ package com.example.emmasoriano.heartsrules;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by emmasoriano on 10/23/17.
@@ -135,10 +136,14 @@ public class GameState {
         return round;
     }
 
-    public void testDeal(){
+    public void Deal(){
         deck.shuffle();
-        ArrayList[] hands = deck.dealHand();
-        players[0].hand = hands[0];
+        Card[][] hands = deck.dealHand();
+        players[0].hand = new ArrayList<>(Arrays.asList(hands[0]));
+        players[0].hand = new ArrayList<>(Arrays.asList(hands[1]));
+        players[0].hand = new ArrayList<>(Arrays.asList(hands[2]));
+        players[0].hand = new ArrayList<>(Arrays.asList(hands[3]));
+
 
     }
 
