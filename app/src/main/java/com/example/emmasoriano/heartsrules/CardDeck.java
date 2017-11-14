@@ -33,12 +33,14 @@ public class CardDeck {
      * Shuffles the deck
      */
     public void shuffle(){
-        int i;
+        int i, ranNum;
         ArrayList<Card> tempList = new ArrayList<>(Arrays.asList(deck));
         Card[] tempDeck = new Card[52];
 
         for (i = 0; i < 52; i++){
-            tempDeck[i] = tempList.get((int)(Math.random()*(tempList.size()-1)));
+            ranNum =(int)(Math.random()*(tempList.size()-1));
+            tempDeck[i] = tempList.get(ranNum);
+            tempList.remove(ranNum);
         }
         deck = tempDeck;
     }
@@ -83,11 +85,10 @@ public class CardDeck {
 
         if(cards != null) {
             for (i = 0; i < 4; i++) {
+                cardsToSort = new ArrayList<>();
                 for (j = 0; j < cards.length - 1; j++) {
                     if(cards[i] != null) {
-                        cardsToSort = new ArrayList<>();
-                        String type = cards[j].getSuitValue();
-                        if (type.equals(suitValues[i])) {
+                        if (cards[j].suitValueIndex == i) {
                             cardsToSort.add(cards[j]);
                             count++;
                         }
@@ -103,7 +104,7 @@ public class CardDeck {
                 }
             }
         }
-        return cards;
+        return rtrnHand;
     }
 
     /**

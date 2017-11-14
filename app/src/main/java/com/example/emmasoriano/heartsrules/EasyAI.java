@@ -10,6 +10,7 @@ public class EasyAI extends Player {
         super(playerName);
     }
 
+
     public void strategy() {
 
     }
