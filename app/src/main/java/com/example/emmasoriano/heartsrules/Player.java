@@ -29,7 +29,7 @@ public class Player{
         name = playerName;
 
         //determines if player has the starting card
-        Card twoOfClubs = new Card(2, "Club");
+        Card twoOfClubs = new Card(2, 0);
         hasTwoOfClubs = checkIfCardinHand(twoOfClubs);
     }
 

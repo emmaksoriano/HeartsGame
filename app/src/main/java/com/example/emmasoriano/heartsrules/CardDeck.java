@@ -22,11 +22,10 @@ public class CardDeck {
         int index = 0;
         for (i = 0; i < 4; i++){
             for(j = 2; j < 13; j++){
-                deck[index] = new Card(j, suitValues[i]);
+                deck[index] = new Card(j, i);
                 index++;
             }
         }
-
         shuffle();
     }
 
@@ -107,7 +106,6 @@ public class CardDeck {
         return cards;
     }
 
-
     /**
      * Uses the insertion sort algorithm to sort cards based on face value
      * @param cards
@@ -130,8 +128,6 @@ public class CardDeck {
 
         return cards;
     }
-
-
 
     /**
      * Uses a quick sort algorithm to sort cards
