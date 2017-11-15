@@ -142,9 +142,9 @@ public class GameState {
         deck.shuffle();
         Card[][] hands = deck.dealHand();
         players[0].hand = new ArrayList<>(Arrays.asList(hands[0]));
-        players[0].hand = new ArrayList<>(Arrays.asList(hands[1]));
-        players[0].hand = new ArrayList<>(Arrays.asList(hands[2]));
-        players[0].hand = new ArrayList<>(Arrays.asList(hands[3]));
+        players[1].hand = new ArrayList<>(Arrays.asList(hands[1]));
+        players[2].hand = new ArrayList<>(Arrays.asList(hands[2]));
+        players[3].hand = new ArrayList<>(Arrays.asList(hands[3]));
 
 
     }

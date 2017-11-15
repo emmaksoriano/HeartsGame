@@ -10,6 +10,7 @@ public class HeartsEasyAI extends Player {
         super(playerName);
     }
 
+
     public void strategy() {
 
     }
