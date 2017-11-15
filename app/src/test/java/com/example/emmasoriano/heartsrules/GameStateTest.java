@@ -12,8 +12,20 @@ public class GameStateTest {
     @Test
     public void setCurrentPlayer() throws Exception {
         GameState testGS = new GameState(0, "Test User");
+        //public void setCurrentPlayer(Player initPlayer){currentPlayer = initPlayer;}
 
         assertTrue(true);
+        GameState ameState=new GameState();
+
+        Player p=new Player("John",new CardDeck());
+
+        ameState.setCurrentPlayer(p);
+
+        Player p2 = ameState.getCurrentPlayer();
+
+        if(p.getName().equals(p2.getName())){
+            assertTrue("i am right",true);
+        }else assertTrue("i suck", false );
     }
 
     @Test

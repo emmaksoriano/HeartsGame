@@ -4,9 +4,9 @@ package com.example.emmasoriano.heartsrules;
  * Created by emmasoriano on 11/6/17.
  */
 
-public class EasyAI extends Player {
+public class HeartsEasyAI extends Player {
 
-    public EasyAI(String playerName) {
+    public HeartsEasyAI(String playerName) {
         super(playerName);
     }
 

@@ -5,11 +5,11 @@ package com.example.emmasoriano.heartsrules;
  * Created by emmasoriano on 10/19/17.
  */
 
-public class LocalGame {
+public class HeartsLocalGame {
     GameState currentGame;
 
     //constructor
-    public LocalGame(GameState game){
+    public HeartsLocalGame(GameState game){
         currentGame = game;
         //find which hand has 2 of clubs
         //initialize all the players myTurn variables

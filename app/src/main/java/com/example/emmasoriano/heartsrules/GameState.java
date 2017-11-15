@@ -45,15 +45,17 @@ public class GameState {
         deck = new CardDeck();
     }
 
+
+
     /**
      * Sets players to
      */
     public void setPlayers(){
         int i;
-        players[1] = new HumanPlayer(userName);
+        players[1] = new HeartsHumanPlayer(userName);
         for(i = 1; i < 3; i++){
             if(difficulty == 0){
-                EasyAI newAI = new EasyAI("Temp Easy AI");
+                HeartsEasyAI newAI = new HeartsEasyAI("Temp Easy AI");
                 players[i] = newAI;
             }
             else{

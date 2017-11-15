@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 /**
     CardDeck deck = new CardDeck();
-    HumanPlayer user = new HumanPlayer("Bob");
+    HeartsHumanPlayer user = new HeartsHumanPlayer("Bob");
     //ask user what dificulty they want the AI to be
     //create 3 AI players
     boolean hardAI;
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         GameState game = new GameState(1, user.getName());
     }
     else{
-        EasyAI cp1 = new EasyAI("Computer Player 1", deck);
-        EasyAI cp2 = new EasyAI("Computer Player 2", deck);
-        EasyAI cp3 = new EasyAI("Computer Player 3", deck);
+        HeartsEasyAI cp1 = new HeartsEasyAI("Computer Player 1", deck);
+        HeartsEasyAI cp2 = new HeartsEasyAI("Computer Player 2", deck);
+        HeartsEasyAI cp3 = new HeartsEasyAI("Computer Player 3", deck);
         GameState game = new GameState(deck,user,cp1,cp2,cp3);
     }
 **/
