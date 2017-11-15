@@ -14,7 +14,7 @@ import edu.up.cs301.game.GameMainActivity;
  * Created by emmasoriano on 11/6/17.
  */
 
-public class HeartsHumanPlayer extends GameHumanPlayer {
+public class HeartsHumanPlayer{//} extends GameHumanPlayer {
 
     public static final int animation_surface=0x7f09001c;
     //Declare Instance Variables
@@ -26,13 +26,13 @@ public class HeartsHumanPlayer extends GameHumanPlayer {
      * Constructor HumandPlayer
      * @param name
      */
-    public HeartsHumanPlayer(String name)
+   // public HeartsHumanPlayer(String name)
     {
-        super(name);
+       // super(name);
     }
 
     public void setAsGui(GameMainActivity activity) {
-
+/*
         // remember the activity
         GameMainActivity myActivity = activity;
 
@@ -53,10 +53,11 @@ public class HeartsHumanPlayer extends GameHumanPlayer {
         if (HeartsLocalGame != null) {
             receiveInfo(HeartsLocalGame);
         }
+ */
     }
 
     public void tick(Canvas g) {
-
+/*
         // ignore if we have not yet received the game state
         if (GameState == null) return;
 
@@ -64,7 +65,7 @@ public class HeartsHumanPlayer extends GameHumanPlayer {
         int height = surface.getHeight();
         int width = surface.getWidth();
         /***********************************************************************/
-
+/*
         Card c = state.getDeck(2).peekAtPlayerCard();
 
         for (int row = 1; row < 8; row++) {
@@ -87,11 +88,13 @@ public class HeartsHumanPlayer extends GameHumanPlayer {
 				rectTop = (100 - VERTICAL_BORDER_PERCENT - CARD_HEIGHT_PERCENT + CARD_WIDTH_PERCENT) * height *(CARD_HEIGHT_PERCENT*row)/ 3000f;
 				rectBottom = (100 - VERTICAL_BORDER_PERCENT) * height / 100f;
 				*/
+/*
                 RectF midTopLocation = new RectF(rectLeft, rectTop, rectRight, rectBottom);
 
                 drawCard(g, midTopLocation, c);
             }
         }
+        */
     }
 
 
@@ -115,7 +118,7 @@ public class HeartsHumanPlayer extends GameHumanPlayer {
         }
         else {
             // just draw the card
-            c.drawOn(g, rect);
+           // c.drawOn(g, rect);
         }
     }
     /**
